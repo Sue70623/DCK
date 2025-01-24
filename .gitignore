@@ -1,0 +1,12 @@
+# Ignorer les fichiers secrets
+client_secret_*.json
+
+# Ignorer les fichiers de l'environnement virtuel
+venv/
+__pycache__/
+
+# Fichiers de configuration système
+*.log
+*.pyc
+.DS_Store
+.env
