@@ -1,0 +1,646 @@
+/* Définition des variables globales dans :root */
+:root {
+  --primary-color: #1f1f1f; /* Couleur principale */
+  --secondary-color: #cb997e; /* Couleur secondaire */
+  --background-light: #fff1e6; /* Fond clair */
+  --background-image: url("https://i.postimg.cc/Sxfk8d8n/bernard-hermant-1n-DW7-Bj-Bj1s-unsplash.jpg"); /* Image de fond */
+  --text-dark: #333; /* Texte principal */
+  --text-light: #fff; /* Texte clair */
+  --font-title: "League Gothic", sans-serif; /* Police des titres */
+  --font-text: "Tenor Sans", serif; /* Police du texte */
+  --section-padding: 40px 20px;
+}
+
+/* Styles généraux */
+body {
+  font-family: var(--font-text);
+  margin: 0;
+  padding: 0;
+  color: var(--text-dark);
+  background: var(--background-light);
+  line-height: 1.6;
+  scroll-behavior: smooth; /* Scroll fluide */
+}
+
+/* Ajout de media queries */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  section {
+    padding: 20px 10px;
+  }
+
+  #home h2,
+  #about h2,
+  #courses h2,
+  #gallery h2,
+  #contact h2 {
+    font-size: 1.5rem;
+  }
+
+  #home p,
+  #about p,
+  #courses ul li,
+  #gallery p,
+  #contact p {
+    font-size: 0.9rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header */
+header {
+  background: var(--primary-color);
+  color: var(--text-light);
+  text-align: center;
+  padding: 20px 0;
+}
+
+header h1 {
+  font-family: var(--font-title);
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+header nav ul {
+  list-style: none;
+  padding-top: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: space-around;
+}
+
+header nav ul li {
+  margin: 0 15px;
+}
+
+header nav ul li a {
+  font-family: var(--font-text);
+  font-weight: medium;
+  color: var(--text-light);
+  letter-spacing: 1px;
+}
+
+header nav ul li a:hover {
+  color: var(--secondary-color); /* Change la couleur au survol */
+  text-decoration: underline; /* Ajoute un soulignement */
+}
+
+#nav-horizontal {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+#nav-horizontal ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+#nav-horizontal ul li a {
+  text-decoration: none;
+  color: var(--text-light);
+  padding: 10px 15px;
+  transition: color 0.3s ease;
+}
+
+#nav-horizontal ul li a:hover {
+  color: var(--secondary-color);
+}
+
+#nav-vertical {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Caché à gauche par défaut */
+  width: 250px;
+  height: 100vh;
+  background: var(--primary-color);
+  color: var(--text-light);
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: left 0.3s ease;
+  display: none; /* Caché par défaut */
+  z-index: 1000;
+}
+
+#nav-vertical ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#nav-vertical ul li {
+  margin: 20px 0;
+}
+
+#nav-vertical ul li a {
+  text-decoration: none;
+  color: var(--text-light);
+  font-size: 1.2rem;
+}
+
+/* Lorsque le menu est visible */
+#nav-vertical.show {
+  left: 0; /* Fait glisser le menu latéral */
+  display: block;
+}
+
+.hamburger {
+  display: none; /* Caché par défaut */
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 1100;
+}
+
+.hamburger span {
+  width: 30px;
+  height: 3px;
+  background: var(--text-light);
+  border-radius: 2px;
+}
+
+/* Petits écrans */
+@media (max-width: 768px) {
+  #nav-horizontal {
+    display: none; /* Cache le menu horizontal */
+  }
+
+  .hamburger {
+    display: flex; /* Affiche l'icône hamburger */
+  }
+
+  #nav-vertical {
+    display: flex; /* Affiche le menu vertical */
+  }
+}
+
+/* Section : Accueil */
+#home {
+  background: var(--background-light);
+  background-image: url("https://i.postimg.cc/fTmFFb8X/Karim-dance.jpg");
+  background-size: cover;
+  height: 100vh; /* La section occupe toute la hauteur visible de l'écran */
+  display: flex; /* Active Flexbox pour centrer le contenu */
+  flex-direction: column; /* Organise les éléments en colonne */
+  justify-content: center; /* Centre verticalement le contenu */
+  align-items: center; /* Centre horizontalement le contenu */
+  text-align: center;
+  padding: 50px 20px;
+}
+
+#home h2 {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  color: var(--text-light);
+}
+
+#home p {
+  font-family: var(--font-text);
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-top: 10px;
+}
+
+/* Section : À propos */
+#about {
+  background: var(--background-light) var(--background-image);
+  background-size: cover;
+  padding: var(--section-padding);
+  margin: 0 auto;
+}
+
+#about h2 {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+#about p {
+  font-size: 1rem;
+}
+
+/* Section : Cours */
+#courses {
+  background: var(--primary-color);
+  color: var(--text-light);
+  padding: var(--section-padding);
+}
+
+#courses h2 {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+#courses ul {
+  list-style: none;
+  padding: 0;
+}
+
+#courses ul li {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* Section : Galerie */
+#gallery {
+  background: var(--background-light) var(--background-image);
+  background-size: cover;
+  padding: var(--section-padding);
+  text-align: center;
+}
+
+#gallery h2 {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+#gallery p {
+  font-size: 1rem;
+}
+
+/* Section : Contact */
+#contact {
+  background: var(--primary-color);
+  color: var(--text-light);
+  padding: var(--section-padding);
+  text-align: center;
+}
+
+#contact h2 {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+#contact p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: var(--text-light);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9em;
+}
+
+footer p {
+  margin: 0;
+}
+
+/*social media section*/
+footer .social-media a {
+  margin: 0 10px;
+}
+
+footer .social-media a svg {
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+footer .social-media a:hover svg {
+  transform: scale(1.1); /* Effet au survol */
+  fill: #6ec6ff; /* Une couleur légèrement dynamique */
+}
+
+/* Section Contact */
+#contact-info {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+#contact-info h2 {
+  font-family: var(--font-title);
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+#contact-info p {
+  font-size: 1.2rem;
+  color: var(--text-dark);
+}
+
+#contact-form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: var(--background-light);
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+}
+
+#contact-form h3 {
+  font-family: var(--font-title);
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+#contact-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#contact-form input,
+#contact-form textarea,
+#contact-form button {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+  font-family: var(--font-text);
+}
+
+#contact-form button {
+  background: var(--primary-color);
+  color: var(--text-light);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#contact-form button:hover {
+  background: var(--secondary-color);
+}
+
+/* Section Galerie */
+#gallery {
+  text-align: center; /* Centre le texte du titre et du paragraphe */
+  padding: 40px 20px; /* Ajoute des marges internes pour aérer la section */
+  display: flex; /* Utilise Flexbox pour organiser le contenu */
+  flex-direction: column; /* Aligne les éléments verticalement */
+  align-items: center; /* Centre les éléments horizontalement */
+  gap: 20px; /* Espace entre le titre, le paragraphe et la grille */
+}
+
+#gallery h2 {
+  font-family: var(--font-title); /* Utilise une police pour le titre */
+  color: var(--primary-color); /* Applique la couleur principale au titre */
+  font-size: 2rem; /* Taille du titre */
+  margin-bottom: 10px; /* Espace sous le titre */
+}
+
+#gallery p {
+  font-size: 1.2rem; /* Taille de police pour le paragraphe */
+  color: var(--text-dark); /* Couleur pour le texte du paragraphe */
+  margin-bottom: 20px; /* Espace sous le paragraphe */
+}
+
+.gallery-grid {
+  display: grid; /* Utilise la grille CSS pour organiser les images */
+  grid-template-columns: repeat(3, 1fr); /* Trois colonnes fixes */
+  gap: 15px; /* Espace entre les images */
+  padding: 20px; /* Marges internes autour de la grille */
+}
+
+.gallery-grid img {
+  width: 100%; /* Adapte l'image à la largeur de son conteneur */
+  height: auto; /* Préserve le ratio de l'image */
+  border-radius: 5px; /* Coins arrondis pour les images */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère sous les images */
+  cursor: pointer; /* Indique que les images sont cliquables */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Effets fluides pour le survol */
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05); /* Agrandit légèrement l'image au survol */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombre plus marquée au survol */
+}
+
+/* Style pour le conteneur du diaporama */
+#lightbox {
+  position: fixed; /* Positionne le lightbox au-dessus du contenu principal */
+  top: 0; /* Place le lightbox en haut de la fenêtre */
+  left: 0; /* Place le lightbox à gauche de la fenêtre */
+  width: 100%; /* Occupe toute la largeur de la fenêtre */
+  height: 100%; /* Occupe toute la hauteur de la fenêtre */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); /* Ajoute un fond sombre semi-transparent */
+  display: flex; /* Utilise flexbox pour centrer l'image */
+  justify-content: center; /* Centre horizontalement l'image dans le lightbox */
+  align-items: center; /* Centre verticalement l'image dans le lightbox */
+  z-index: 1000; /* Assure que le lightbox est au-dessus de tous les autres éléments */
+}
+
+/* Masque le lightbox lorsqu'il est inactif */
+#lightbox.hidden {
+  display: none; /* Cache le conteneur lightbox */
+}
+
+/* Style pour l'image affichée dans le lightbox */
+#lightbox img {
+  max-width: 80%; /* Limite la largeur de l'image à 80% de la fenêtre */
+  max-height: 80%; /* Limite la hauteur de l'image à 80% de la fenêtre */
+  border-radius: 10px; /* Ajoute des coins arrondis pour correspondre aux miniatures */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* Ajoute une ombre pour un effet de profondeur */
+}
+
+/* Bouton de fermeture du lightbox */
+#close {
+  position: absolute; /* Positionne le bouton par rapport au lightbox */
+  top: 20px; /* Distance du haut de la fenêtre */
+  right: 20px; /* Distance du bord droit de la fenêtre */
+  font-size: 30px; /* Taille du bouton */
+  color: white; /* Couleur du bouton */
+  cursor: pointer; /* Indique que le bouton est cliquable */
+  transition: transform 0.3s ease; /* Ajoute un effet fluide lors du survol */
+}
+
+/* Effet au survol du bouton de fermeture */
+#close:hover {
+  transform: scale(1.2); /* Agrandit l'icône au survol */
+  color: #6ec6ff; /* Change la couleur du bouton pour indiquer une action */
+}
+
+/* Section Réservation */
+#reservation {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+#reservation h2 {
+  font-family: var(--font-title);
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+#reservation p {
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+
+#reservation form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: var(--background-light);
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+}
+
+#reservation form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#reservation form input,
+#reservation form select,
+#reservation form button {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+  font-family: var(--font-text);
+}
+
+#reservation form button {
+  background: var(--primary-color);
+  color: var(--text-light);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#reservation form button:hover {
+  background: var(--secondary-color);
+}
+
+#scroll-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  display: none; /* Initialement caché */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease;
+}
+
+#scroll-top.show {
+  display: flex; /* Affiche le bouton quand la classe "show" est ajoutée */
+  opacity: 1;
+}
+
+#scroll-top:hover {
+  background: var(--secondary-color);
+}
+
+/* Positionnement de la liste et du tarif */
+.course-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.course-info ul {
+  flex: 1; /* La liste prend tout l’espace disponible */
+}
+
+#price {
+  flex-shrink: 0; /* Le tarif reste fixe */
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-align: right;
+}
+
+/* Section descriptive des cours */
+/* Style global pour les sections des cours */
+.course {
+  padding: 40px 20px;
+  background: var(--primary-color);
+  color: var(--text-light);
+  text-align: center;
+  border-radius: 5px; /* Optionnel, pour un design arrondi */
+  margin-bottom: 0px;
+}
+
+.course.image-background {
+  background: var(--background-image) no-repeat center center/cover;
+  color: var(--primary-color);
+}
+
+/*section description de course avec image en fond*/
+.course.image-background h3 {
+  color: var(--text-dark);
+}
+
+.course h3 {
+  font-family: var(--font-title);
+  color: var(--text-light);
+  font-size: 1.8rem;
+}
+
+.course p {
+  font-family: var(--font-text);
+  margin: 10px 0 20px;
+}
+
+.course.image-background .cta-button {
+  background: var(--primary-color);
+  color: var(--text-light);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.course .cta-button:hover {
+  background: var(--secondary-color);
+}
+
+.course .cta-button {
+  background: var(--secondary-color);
+  color: var(--text-light);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.course .cta-button:hover {
+  background: var(--text-light);
+  color: var(--primary-color);
+  transition: background 0.3s ease, color 0.3s ease;
+}
